@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>调色学习站 · 知识总览 &amp; 修图工作台</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">🎨</span>
+      <div>
+        <h1>调色学习站</h1>
+        <p class="tagline">从知乎/小红书学的技巧，整理+能直接在照片上用</p>
+      </div>
+    </div>
+    <nav class="tabs">
+      <button class="tab active" data-tab="knowledge">📚 知识库</button>
+      <button class="tab" data-tab="workbench">🖼️ 修图工作台</button>
+      <button class="tab" data-tab="recipes">🧪 风格配方</button>
+    </nav>
+    <div class="server-status" id="serverStatus">连接中…</div>
+  </header>
+
+  <main>
+    <!-- ============ 知识库 ============ -->
+    <section id="tab-knowledge" class="panel active">
+      <div class="intro">
+        <h2>调色，先懂「控制什么」</h2>
+        <p>调色不是套一个滤镜就完事。真正理解下面这些工具，你就能自由地还原/塑造一张图的气质。</p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <h3>🌡️ 白平衡 / 色温色调</h3>
+          <p><b>色温</b>让画面整体偏暖(橙)或偏冷(蓝)；<b>色调</b>让画面偏洋红或偏绿。</p>
+          <ul>
+            <li>偏了白平衡，皮肤会发黄/发红——先校正再谈风格。</li>
+            <li>想干净：降一点点黄(反方向调)，人会显得更通透。</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>🔆 曝光 / 对比度 / 高光阴影</h3>
+          <p>决定画面的「明暗结构」。控制整体的明和暗，以及暗部是否「发灰」。</p>
+          <ul>
+            <li><b>日系</b>常用整体提亮 + 压缩对比 + 提升暗部(发灰)。</li>
+            <li><b>港风/电影感</b>常用增强对比 + 压暗阴影制造情绪。</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>🎨 饱和度 / HSL</h3>
+          <p><b>饱和度</b>控制整体颜色浓淡；<b>HSL</b> 能单独控制某一种颜色的<u>色相/饱和度/明度</u>。</p>
+          <ul>
+            <li>调<u>橙色</u>：影响皮肤/肤色。</li>
+            <li>调<u>青色/蓝色</u>：影响天空、冷调氛围。</li>
+            <li>调<u>绿色</u>：影响植物、草地(常降饱和显高级)。</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>📈 曲线 (Curves)</h3>
+          <p>最强大、最自由的工具。横轴是输入亮度，纵轴是输出亮度，可对 RGB 整体或 <u>R/G/B 单通道</u>分别拉。</p>
+          <ul>
+            <li><b>S 形</b>：增强对比，最常见的电影感起点。</li>
+            <li><b>抬黑点</b>：左边端点往上抬 = 暗部发灰(胶片感)。</li>
+            <li><b>单通道</b>：蓝通道高光提亮=冷高光；红通道暗部下压=青阴影。</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>⚖️ 色彩平衡 / 分离色调</h3>
+          <p>给「阴影 / 中间调 / 高光」三个区域分别染上颜色。</p>
+          <ul>
+            <li><b>分离色调</b>：阴影加青 + 高光加橙 = 经典的「青橙」电影配方。</li>
+            <li>阴影加蓝 + 高光加黄 = 日系清凉感。</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>🩸 色阶 / 黑白场</h3>
+          <p>用 输入/输出 的黑白点 + 中间灰 控制曝光范围，修偏色的第一站。</p>
+          <ul>
+            <li>发现灰蒙蒙没层次：定一下黑白场，立刻通透。</li>
+            <li>偏色的图，先在黑白场里平衡，再进曲线。</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>💡 修图小口诀</h3>
+          <ul>
+            <li>先<b>定白平衡</b> → 再<b>修曝光</b> → 然后<b>调肤色/局部</b> → 最后<b>整体风格</b>。</li>
+            <li>肤色是底线：先把人体肤色调自然，再谈风格。</li>
+            <li>风格是「锦上添花」，别用风格掩盖基本功问题。</li>
+            <li>少即是多：多数好看的照片只改了两三个关键值。</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ 修图工作台 ============ -->
+    <section id="tab-workbench" class="panel">
+      <div class="workbench-grid">
+        <div class="wb-left">
+          <div class="dropzone" id="dropzone">
+            <input type="file" id="fileInput" accept="image/*" hidden>
+            <div class="dz-inner">
+              <div class="dz-icon">📤</div>
+              <p><b>拖一张照片到这里</b> 或 <button class="linkbtn" id="browseBtn">点此选择</button></p>
+              <p class="dz-hint">支持 JPG / PNG / WebP</p>
+            </div>
+          </div>
+          <div class="origin-preview" id="originPreview" hidden>
+            <span class="label">原图</span>
+            <img id="originImg" alt="原图">
+          </div>
+
+          <div class="sample-gallery">
+            <label>示例图库（点一张载入试试）</label>
+            <div class="sample-grid" id="sampleGrid"></div>
+          </div>
+        </div>
+
+        <div class="wb-right">
+          <div class="style-select">
+            <label>风格配方</label>
+            <div class="style-grid" id="styleGrid"></div>
+          </div>
+
+          <div class="params">
+            <label>微调参数 (可选)</label>
+            <div class="param-row"><span>曝光</span><input type="range" id="p-exposure" min="-1" max="1" step="0.05" value="0"><span class="pval" id="v-exposure">0.00</span></div>
+            <div class="param-row"><span>对比</span><input type="range" id="p-contrast" min="0.5" max="1.6" step="0.05" value="1"><span class="pval" id="v-contrast">1.00</span></div>
+            <div class="param-row"><span>饱和度</span><input type="range" id="p-saturation" min="0" max="2" step="0.05" value="1"><span class="pval" id="v-saturation">1.00</span></div>
+            <div class="param-row"><span>色温</span><input type="range" id="p-temperature" min="-1" max="1" step="0.05" value="0"><span class="pval" id="v-temperature">0.00</span></div>
+          </div>
+
+          <div class="actions">
+            <button id="autoBtn" disabled>🤖 智能自动修图</button>
+            <button id="renderBtn" disabled>🎨 开始渲染</button>
+            <button id="downloadBtn" disabled>⬇️ 下载成品</button>
+          </div>
+          <div class="render-status" id="renderStatus"></div>
+        </div>
+      </div>
+
+      <div class="result" id="resultArea" hidden>
+        <div class="compare">
+          <div class="cmp-box">
+            <span class="label">原图</span>
+            <img id="cmpBefore" alt="原图">
+          </div>
+          <div class="cmp-box">
+            <span class="label">成品</span>
+            <img id="cmpAfter" alt="成品">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 风格配方 ============ -->
+    <section id="tab-recipes" class="panel">
+      <h2>风格配方速查</h2>
+      <p class="recipes-intro">每种风格在「修图工作台」里点一下即可直接套用照片。这里列出它大致做了什么、适合什么场景。</p>
+      <div class="recipe-list" id="recipeList"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>调色学习站 · 数据来自公开教程整理(知乎/小红书等) · 工作台为本地 Python 渲染，不联网上传照片</p>
+  </footer>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>
